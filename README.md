@@ -7,7 +7,7 @@ A multi-threaded pool of "processors" or "workers", where each processor is a th
 If a processor has no tasks to handle and it couldn't find any other queue to steal from (a queue with more than 1 task), the processor (thread) goes to sleep and wait for tasks to handle. Any time a new task or a deferred task is added to the queue, all threads are notified and compete each other on stealing tasks to handle.
 
 Testing:
-The first part was tested using a bit of JUnit and a MergeSort implementation using the Work-Stealing-Thread-Pool where, obviously, the initial unsorted array is splitted to two sub tasks (sub-arrays) submitted to the pool and so on.
+The first part was tested with a basic usage of JUnit and with a MergeSort implementation using the Work-Stealing-Thread-Pool where, obviously, the initial unsorted array is splitted to two sub tasks (sub-arrays) submitted to the pool and so on.
 
 -- part 2: Smartphone Factory Simulation: --
 Using the infrastructure built in part 1, where each "processor" is now a diligent worker (ran by a thread) practicing work stealing in order to quickly assemble products ordered by their clients.
