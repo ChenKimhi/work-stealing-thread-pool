@@ -3,7 +3,7 @@ Smartphone Factory simulation based on a pool of threads stealing tasks from eac
 
 This project contains two main parts:
 #### part 1: implementing a Work Stealing Threads Pool 
-A multi-threaded pool of "processors" or "workers", where each processor is a thread that have its own queue of tasks. Tasks may depend on other sub-tasks. When a processor is working on a such a task, the main task has a deferred result (implemented using lambda callbacks) and is removed from the queue until all sub-tasks are completed. The processor handling such a task Spawns the sub-tasks to its own queue and continue to handles tasks on his queue. When a processor's task is empty, he tries to steal tasks from other processors' queues. 
+A multi-threaded pool of "processors" or "workers", where each processor is a thread that have its own queue of tasks. Tasks may depend on other sub-tasks. When a processor is working on a such a task, the main task has a deferred result (implemented using lambda callbacks) and is removed from the queue until all sub-tasks are completed. The processor handling such a task Spawns the sub-tasks to its own queue and continue to handle tasks on its queue. When a processor's task is empty, he tries to steal tasks from other processors' queues. 
 If a processor has no tasks to handle and it couldn't find any other queue to steal from (a queue with more than 1 task), the processor (thread) goes to sleep and wait for tasks to handle. Any time a new task or a deferred task is added to the queue, all threads are notified and compete each other on stealing tasks to handle.
 
 **Testing:**
